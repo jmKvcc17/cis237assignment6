@@ -52,12 +52,27 @@ namespace cis237Assignment6.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Beverages.Add(beverage);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (!SearchDB(beverage))
+                {
+                    db.Beverages.Add(beverage);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                    return RedirectToAction("Home"); // *****************Redirect to new view (error page)
+                
             }
 
             return View(beverage);
+        }
+
+        private bool SearchDB(Beverage SearchBev)
+        {
+
+            if (db.Beverages.Find(SearchBev.id) == null)
+                return false;
+            else
+                return true;
         }
 
         // GET: Beverages/Edit/5
