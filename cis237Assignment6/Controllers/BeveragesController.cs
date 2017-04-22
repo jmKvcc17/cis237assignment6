@@ -6,14 +6,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using cis237Assignment6;
+using cis237Assignment6.Models;
 
 namespace cis237Assignment6.Controllers
 {
     [Authorize]
     public class BeveragesController : Controller
     {
-        private BeverageJMeachumEntities db = new BeverageJMeachumEntities();
+        //private BeverageJMeachumEntities db = new BeverageJMeachumEntities();
+        private BeverageJMeachumEntities1 db = new BeverageJMeachumEntities1();
 
         // GET: Beverages
         public ActionResult Index()
