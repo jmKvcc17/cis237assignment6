@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cis237Assignment6
+namespace cis237Assignment6.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BeverageJMeachumEntities : DbContext
+    public partial class BeverageJMeachumEntities1 : DbContext
     {
-        public BeverageJMeachumEntities()
-            : base("name=BeverageJMeachumEntities")
+        public BeverageJMeachumEntities1()
+            : base("name=BeverageJMeachumEntities1")
         {
         }
     

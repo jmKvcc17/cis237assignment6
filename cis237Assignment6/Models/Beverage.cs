@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cis237Assignment6
+namespace cis237Assignment6.Models
 {
     using System;
     using System.Collections.Generic;

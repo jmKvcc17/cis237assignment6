@@ -163,24 +163,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="BevEFDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BevEFDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BevEFDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BevEFDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BevEFDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BevEFDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Beverage.cs">
-      <DependentUpon>BevEFDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BeveragesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,36 +171,54 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Beverage.cs">
+      <DependentUpon>EFBeverageModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFBeverageModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFBeverageModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFBeverageModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFBeverageModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFBeverageModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFBeverageModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BevEFDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BevEFDataModel.edmx</DependentUpon>
-      <LastGenOutput>BevEFDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BevEFDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BevEFDataModel.edmx</DependentUpon>
-      <LastGenOutput>BevEFDataModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\EFBeverageModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFBeverageModel.edmx</DependentUpon>
+      <LastGenOutput>EFBeverageModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EFBeverageModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFBeverageModel.edmx</DependentUpon>
+      <LastGenOutput>EFBeverageModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="BevEFDataModel.edmx">
+    <EntityDeploy Include="Models\EFBeverageModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BevEFDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EFBeverageModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="BevEFDataModel.edmx.diagram">
-      <DependentUpon>BevEFDataModel.edmx</DependentUpon>
+    <Content Include="Models\EFBeverageModel.edmx.diagram">
+      <DependentUpon>EFBeverageModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

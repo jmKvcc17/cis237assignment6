@@ -33,7 +33,7 @@
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="BeverageJMeachumEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BeverageJMeachumEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Beverages" EntityType="Self.Beverage" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BeverageJMeachumModelStoreContainer" CdmEntityContainer="BeverageJMeachumEntities">
+        <EntityContainerMapping StorageEntityContainer="BeverageJMeachumModelStoreContainer" CdmEntityContainer="BeverageJMeachumEntities1">
           <EntitySetMapping Name="Beverages">
             <EntityTypeMapping TypeName="BeverageJMeachumModel.Beverage">
               <MappingFragment StoreEntitySet="Beverages">
