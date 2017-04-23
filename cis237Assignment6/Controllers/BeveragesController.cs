@@ -59,7 +59,7 @@ namespace cis237Assignment6.Controllers
                     return RedirectToAction("Index");
                 }
                 else
-                    return RedirectToAction("Home"); // *****************Redirect to new view (error page)
+                    return View("Error"); // *****************Redirect to new view (error page)
                 
             }
 
