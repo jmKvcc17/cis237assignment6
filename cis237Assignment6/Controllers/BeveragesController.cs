@@ -15,11 +15,56 @@ namespace cis237Assignment6.Controllers
     {
         //private BeverageJMeachumEntities db = new BeverageJMeachumEntities();
         private BeverageJMeachumEntities1 db = new BeverageJMeachumEntities1();
-
+        
         // GET: Beverages
         public ActionResult Index()
         {
-            return View(db.Beverages.ToList());
+            DbSet<Beverage> BeveragesToFilter = db.Beverages;
+
+            string filterName = "";
+            string filterPack = "";
+            string filterMin = "";
+            string filterMax = "";
+
+            decimal min = 0;
+            decimal max = 100; // **********************************
+
+            if (!string.IsNullOrWhiteSpace((string)Session["name"]))
+            {
+                filterName = (string)Session["name"];
+            }
+
+            if (!string.IsNullOrWhiteSpace((string)Session["pack"]))
+            {
+                filterPack = (string)Session["pack"];
+            }
+
+            if (!string.IsNullOrWhiteSpace((string)Session["min"]))
+            {
+                filterMin = (string)Session["min"];
+                min = decimal.Parse(filterMin);
+            }
+
+            if (!string.IsNullOrWhiteSpace((string)Session["max"]))
+            {
+                filterMax = (string)Session["max"];
+                max = decimal.Parse(filterMax);
+            }
+
+            IEnumerable<Beverage> filtered = BeveragesToFilter.Where(beverage => beverage.price >= min
+                && beverage.price <= max && beverage.name.Contains(filterName)
+                && beverage.pack.Contains(filterPack));
+
+            IEnumerable<Beverage> finalFiltered = filtered.ToList();
+
+            ViewBag.filterName = filterName;
+            ViewBag.filterPack = filterPack;
+            ViewBag.filterMin = filterMin;
+            ViewBag.filterMax = filterMax;
+
+            return View(finalFiltered);
+
+            //return View(db.Beverages.ToList());
         }
 
         // GET: Beverages/Details/5
@@ -139,6 +184,23 @@ namespace cis237Assignment6.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Filter()
+        {
+            string name = Request.Form.Get("name");
+            string pack = Request.Form.Get("pack");
+            string min = Request.Form.Get("min");
+            string max = Request.Form.Get("max");
+
+            Session["name"] = name;
+            Session["pack"] = pack;
+            Session["min"] = min;
+            Session["max"] = max;
+
+            return RedirectToAction("Index");
         }
     }
 }

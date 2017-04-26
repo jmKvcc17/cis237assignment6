@@ -6,6 +6,29 @@
 
 <h2>Beverages in Database</h2>
 
+<div class="form-group">
+    <fieldset>
+        <legend>Search Filter</legend>
+        @{ 
+            using (Html.BeginForm("Filter", "Beverages", FormMethod.Post, new { @class = "form-inline" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <label for="name">Name</label>
+                @Html.TextBox("name", (string)ViewBag.filterMake)
+                <label for="pack">Pack</label>
+                @Html.TextBox("pack", (string)ViewBag.filterMake)
+                <label for="min">Min</label>
+                @Html.TextBox("min", (string)ViewBag.filterMake)
+                <label for="max">Max</label>
+                @Html.TextBox("max", (string)ViewBag.filterMake)
+                <br />
+                <input type="submit" value="Filter" class="btn btn-info pull-right" />
+            }
+        }
+    </fieldset>
+</div>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
