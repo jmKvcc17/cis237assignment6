@@ -13,17 +13,18 @@
             using (Html.BeginForm("Filter", "Beverages", FormMethod.Post, new { @class = "form-inline" }))
             {
                 @Html.AntiForgeryToken()
-
-                <label for="name">Name</label>
-                @Html.TextBox("name", (string)ViewBag.filterMake)
-                <label for="pack">Pack</label>
-                @Html.TextBox("pack", (string)ViewBag.filterMake)
-                <label for="min">Min</label>
-                @Html.TextBox("min", (string)ViewBag.filterMake)
-                <label for="max">Max</label>
-                @Html.TextBox("max", (string)ViewBag.filterMake)
+                <div style="padding-left:50px"> @*****************************@
+                    <label for="name">Name</label>
+                    @Html.TextBox("name", (string)ViewBag.filterMake)
+                    <label for="pack">Pack</label>
+                    @Html.TextBox("pack", (string)ViewBag.filterMake)
+                    <input name="min" for="min" type="number" value="@ViewBag.filterMin">Min @*************************@
+                    @*@Html.TextBox("min", (string)ViewBag.filterMake)*@
+                    <input name="max" type="number" for="max" value="@ViewBag.filterMax">Max @**************************@
+                    @*@Html.TextBox("max", (string)ViewBag.filterMake)*@
+                </div>
                 <br />
-                <input type="submit" value="Filter" class="btn btn-info pull-right" />
+                <input type="submit" value="Filter" class="btn btn-info pull-right" style="background-color: coral" />
             }
         }
     </fieldset>

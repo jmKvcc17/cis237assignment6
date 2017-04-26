@@ -42,7 +42,7 @@ namespace cis237Assignment6.Controllers
             if (!string.IsNullOrWhiteSpace((string)Session["min"]))
             {
                 filterMin = (string)Session["min"];
-                min = decimal.Parse(filterMin);
+                  min = decimal.Parse(filterMin);
             }
 
             if (!string.IsNullOrWhiteSpace((string)Session["max"]))
