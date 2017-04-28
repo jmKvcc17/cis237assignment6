@@ -4,6 +4,8 @@
     ViewBag.Title = "Beverages";
 }
 
+@Styles.Render("~/Content/BevSite.css")
+
 <h2>Beverages in Database</h2>
 
 <div class="form-group">
@@ -18,10 +20,11 @@
                     @Html.TextBox("name", (string)ViewBag.filterMake)
                     <label for="pack">Pack</label>
                     @Html.TextBox("pack", (string)ViewBag.filterMake)
-                    <input name="min" for="min" type="number" value="@ViewBag.filterMin">Min @*************************@
-                    @*@Html.TextBox("min", (string)ViewBag.filterMake)*@
-                    <input name="max" type="number" for="max" value="@ViewBag.filterMax">Max @**************************@
-                    @*@Html.TextBox("max", (string)ViewBag.filterMake)*@
+                    <label for="min">Min</label>
+                    <input name="min" for="min" type="number" value="@ViewBag.filterMin"> @*************************@
+                    <label for="max">Max</label>
+                    <input name="max" type="number" for="max" value="@ViewBag.filterMax"> @**************************@
+                    
                 </div>
                 <br />
                 <input type="submit" value="Filter" class="btn btn-info pull-right" style="background-color: coral" />
@@ -31,7 +34,7 @@
 </div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create Beverage", "Create", null, new { @class = "Clear-Text-Form" })
 </p>
 <table class="table">
     <tr>

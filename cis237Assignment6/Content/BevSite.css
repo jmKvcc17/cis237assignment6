@@ -2,7 +2,28 @@
     background-color: #F4FFFF;
 }
 
+.Create-Button {
+    text-align:center;
+    padding:10px; 
+    background-color:coral; 
+    width: 100px; 
+    border-radius: 25px; 
+    color: black;
+    
+    border: solid;
+    border-color: #CF6A00;
+    color: black;
+}
 
-.navbar {
-     background-color: #FF6A1F;
+.Clear-Text-Form {
+    
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;  
+    background-color: coral;
+    width: 100px; 
+    border-radius: 25px; 
+    color: black;
+    border: solid;
+    
 }

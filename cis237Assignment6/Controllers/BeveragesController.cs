@@ -63,8 +63,6 @@ namespace cis237Assignment6.Controllers
             ViewBag.filterMax = filterMax;
 
             return View(finalFiltered);
-
-            //return View(db.Beverages.ToList());
         }
 
         // GET: Beverages/Details/5
@@ -97,23 +95,30 @@ namespace cis237Assignment6.Controllers
         {
             if (ModelState.IsValid)
             {
+                // if the same id isn't found, add the 
+                // beverage to the database
                 if (!SearchDB(beverage))
                 {
                     db.Beverages.Add(beverage);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                // if there is a duplicate, send the user to
+                // an error page.
                 else
-                    return View("Error"); // *****************Redirect to new view (error page)
+                    return View("Error");
                 
             }
 
             return View(beverage);
         }
 
+
+        // Accepts the beverage to be added, and searches
+        // the database to see if the same id exists
         private bool SearchDB(Beverage SearchBev)
         {
-
+            // If the same id is not found, return false
             if (db.Beverages.Find(SearchBev.id) == null)
                 return false;
             else
