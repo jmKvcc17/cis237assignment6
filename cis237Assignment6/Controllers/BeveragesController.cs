@@ -19,16 +19,21 @@ namespace cis237Assignment6.Controllers
         // GET: Beverages
         public ActionResult Index()
         {
+            // Holds the entire database
             DbSet<Beverage> BeveragesToFilter = db.Beverages;
 
+            // used to hold the values from the session
             string filterName = "";
             string filterPack = "";
             string filterMin = "";
             string filterMax = "";
 
+            // Default max/min values to filter price
             decimal min = 0;
-            decimal max = 100; // **********************************
+            decimal max = 100;
 
+            // Check to see if there is a value in the session, and if there is, assign it
+            // to the variable that we setup to hold the value
             if (!string.IsNullOrWhiteSpace((string)Session["name"]))
             {
                 filterName = (string)Session["name"];
@@ -51,16 +56,15 @@ namespace cis237Assignment6.Controllers
                 max = decimal.Parse(filterMax);
             }
 
+            // Use BeveragesToFilter to filter the database based on the price range, name, and pack.
+            // Once it has found the beverages that meet the criteria, store them in the 
+            // filtered variable.
             IEnumerable<Beverage> filtered = BeveragesToFilter.Where(beverage => beverage.price >= min
                 && beverage.price <= max && beverage.name.Contains(filterName)
                 && beverage.pack.Contains(filterPack));
 
+            // Convert filtered to a list and store it in finalFiltered.
             IEnumerable<Beverage> finalFiltered = filtered.ToList();
-
-            ViewBag.filterName = filterName;
-            ViewBag.filterPack = filterPack;
-            ViewBag.filterMin = filterMin;
-            ViewBag.filterMax = filterMax;
 
             return View(finalFiltered);
         }
@@ -191,20 +195,26 @@ namespace cis237Assignment6.Controllers
             base.Dispose(disposing);
         }
 
+        // Mark the method as Post since it is reached from a form submit
+        // Make sure to validate the antiforgeryToken too since we include it in the form
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Filter()
         {
+            // Get the form data that we sent out of the request object.
             string name = Request.Form.Get("name");
             string pack = Request.Form.Get("pack");
             string min = Request.Form.Get("min");
             string max = Request.Form.Get("max");
 
+            // Now that we have the data pulled out from the request object,
+            // let's put it into the session so that other methods can have access to it
             Session["name"] = name;
             Session["pack"] = pack;
             Session["min"] = min;
             Session["max"] = max;
 
+            // Redirect back to the index page
             return RedirectToAction("Index");
         }
     }

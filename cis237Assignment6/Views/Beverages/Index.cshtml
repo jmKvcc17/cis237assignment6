@@ -4,38 +4,41 @@
     ViewBag.Title = "Beverages";
 }
 
-@Styles.Render("~/Content/BevSite.css")
+@Styles.Render("~/Content/BevSite.css") @*Use custom css for styling*@
 
 <h2>Beverages in Database</h2>
 
+@*Display the filter options and create the filter button*@
 <div class="form-group">
     <fieldset>
         <legend>Search Filter</legend>
-        @{ 
-            using (Html.BeginForm("Filter", "Beverages", FormMethod.Post, new { @class = "form-inline" }))
-            {
+        @{ @*Open up a form that will go to the Filter method on the beverages controller with a post request*@
+        using (Html.BeginForm("Filter", "Beverages", FormMethod.Post, new { @class = "form-inline" }))
+        {
                 @Html.AntiForgeryToken()
-                <div style="padding-left:50px"> @*****************************@
+
+                 @*Creat the labels and text boxes to get the data to filter*@
                     <label for="name">Name</label>
-                    @Html.TextBox("name", (string)ViewBag.filterMake)
+                    @Html.TextBox("name", (string)ViewBag.filterName)
                     <label for="pack">Pack</label>
-                    @Html.TextBox("pack", (string)ViewBag.filterMake)
+                    @Html.TextBox("pack", (string)ViewBag.filterPack)
                     <label for="min">Min</label>
-                    <input name="min" for="min" type="number" value="@ViewBag.filterMin"> @*************************@
+                    <input name="min" for="min" type="number" value="@ViewBag.filterMin"> @*Only accepts numbers*@
                     <label for="max">Max</label>
-                    <input name="max" type="number" for="max" value="@ViewBag.filterMax"> @**************************@
-                    
-                </div>
-                <br />
-                <input type="submit" value="Filter" class="btn btn-info pull-right" style="background-color: coral" />
+                    <input name="max" type="number" for="max" value="@ViewBag.filterMax"> @*Only accepts numbers*@
+                    <br />
+                    <input type="submit" value="Filter" class="btn btn-info pull-right btn-Style" />
             }
         }
     </fieldset>
 </div>
 
+@*Create button to create a new beverage*@
 <p>
     @Html.ActionLink("Create Beverage", "Create", null, new { @class = "Clear-Text-Form" })
 </p>
+
+@*Displays all of the beverage items*@
 <table class="table">
     <tr>
         <th>
@@ -53,6 +56,7 @@
         <th></th>
     </tr>
 
+    @*Displays the edit, delete and details links for all beverage items*@
 @foreach (var item in Model) {
     <tr>
         <td>

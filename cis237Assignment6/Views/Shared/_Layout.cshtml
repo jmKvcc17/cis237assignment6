@@ -6,12 +6,15 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Content/BevSite")
 
+    @*Main master layout for the site. Controls how every page with look, includes css
+        and bootstrap, along with the nav bar.*@
 
 </head>
 <body>
   
-    <div class="navbar navbar-inverse navbar-fixed-top"  style="background-color: #FF935D">
+    <div class="navbar navbar-default"  style="background-color: #FF935D; color: black !important">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,11 +24,13 @@
                 </button>
                 @Html.ActionLink("Beverage Database", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <div class="navbar-collapse collapse" >
+                <ul class="nav navbar-nav" >
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "Nav-Color-Bev" })</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*If the user is logged in, display the beverages option
+                        on the nav bar.*@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Beverages", "Index", "Beverages")</li>

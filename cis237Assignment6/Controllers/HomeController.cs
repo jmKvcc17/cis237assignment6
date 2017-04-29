@@ -8,11 +8,15 @@ namespace cis237Assignment6.Controllers
 {
     public class HomeController : Controller
     {
+        // Method for index page, returns the 
+        // page view
         public ActionResult Index()
         {
             return View();
         }
 
+        // Method for the about page, displays a title,
+        // returns the page view
         public ActionResult About()
         {
             ViewBag.Message = "How to use this website.";
@@ -20,10 +24,10 @@ namespace cis237Assignment6.Controllers
             return View();
         }
 
+        // Method for contact page, returns the 
+        // page view
         public ActionResult Contact()
         {
-            //ViewBag.Message = ".";
-
             return View();
         }
     }

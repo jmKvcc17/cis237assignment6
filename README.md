@@ -1,9 +1,10 @@
 # Assignment 6 - Web Application to Manage Beverages
 
 ## Due 04-26-2017 (11:59pm)
+Updated: 4/28/17
 
 ## Author
-
+Forked: Jesse Meachum
 ## Description
 
 You are to create a web application using ASP.NET MVC to manage our beverage database.
@@ -85,6 +86,7 @@ DatabaseName: Beverage + FirstInital + LastName
 * Denied access to beverages page for non-logged in users.
 
 ### Extra Credit
+--->Did option 1: Prevents non-numerical input in filter<----
 You can get up to 40 assignment points of extra credit by doing the following:
 
 * Validate all information that is submitted to ensure it is valid. This includes Insert, Update, and Filtering of Beverages.
@@ -132,5 +134,6 @@ the culprit, but I don't know which ones.
 | Total                                   | 100    |
 
 ## Outside Resources Used
-
+w3schools
 ## Known Problems, Issues, And/Or Errors in the Program
+Sql server wouldn't work on a computer, might have been from version differences

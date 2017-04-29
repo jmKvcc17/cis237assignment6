@@ -1,4 +1,6 @@
-﻿body {
+﻿/*Custom css to customize default views*/
+
+body {
     background-color: #F4FFFF;
 }
 
@@ -26,4 +28,19 @@
     color: black;
     border: solid;
     
+}
+
+.Nav-Color-Bev {
+    color: black;
+    margin: 0;
+
+}
+
+.LinkBackground {
+    background-color: #BCF8FF;
+}
+
+.btn-Style {
+    background-color: coral; 
+    color: black;
 }
